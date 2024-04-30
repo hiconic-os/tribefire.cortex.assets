@@ -16,7 +16,7 @@ You should have received a copy of the GNU Lesser General Public License along w
         <version>[3.0,3.1)</version>
     </parent>
     <artifactId>tomcat-runtime</artifactId>
-    <version>3.0.54</version>
+    <version>3.0.55</version>
     <packaging>pom</packaging>
     <dependencies>
         <!-- no dependencies -->
