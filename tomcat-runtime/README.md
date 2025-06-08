@@ -36,7 +36,36 @@ For example, `catalina.sh` is created during Jinni setup based on template `cata
 
 
 There is an update script (`update.sh`) which semi-automates `tomcat-runtime` asset updates. That means it helps updating the files in `runtime-original/` and `runtime-modifications/custom/`.
-The update script is used by a pipeline which periodically checks, if new versions of Tomcat or our extensions are available.
+
+### Example usage:
+
+```
+sh update.sh \
+    --tomcatVersion 9.0.105 \
+    --stopIfReviewRequired false \
+    --artifactoryRepositoryBaseUrl https://maven.pkg.github.com/hiconic-os/maven-repo-dev \
+    --artifactory-credentials ignored:${GITHUB_READ_PACKAGES_TOKEN} \
+    --tomcatJuliArtifact 'com.braintribe.tomcat:logging-juli-extensions#2.0.79' \
+    --tomcatExtensionsArtifact 'com.braintribe.tomcat:tomcat-extensions#2.0.10' \
+    --devLoaderArtifact 'com.braintribe.devrock.eclipse.devloader:dev-loader#2.0.16'
+```
+
+Note this assumes a `GITHUB_READ_PACKAGES_TOKEN` env variable is set, which is also needed for regular development.
+
+### Finding out latest versions
+
+For `Tomcat 9`, see https://tomcat.apache.org/download-90.cgi
+
+For Hiconic specific artifacts:
+- `logging-juli-extensions`
+- `tomcat-extensions`
+- `dev-loader`
+
+use `versions.sh` script (which contains the `hiconic-os` GitHub packages and names of the artifacts, so they don't need to be passed as parameters):
+
+```
+sh versions.sh
+```
 
 ### !!ATTENTION!!
 The files in `runtime-modifications/custom-auto-maintained/` are updated automatically by the update script. Never modify them manually!

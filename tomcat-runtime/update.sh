@@ -17,7 +17,7 @@ function repositoryRelativeJarFilePath() {
 	local relativeArtifactVersionFolder="${groupId//\./\/}/${artifactId}/${version}"
 	local jarFileName="${artifactId}-${version}.jar"
 	local relativeJarFilePath="${relativeArtifactVersionFolder}/${jarFileName}"
-	# return resulrt via echo
+	# return result via echo
 	echo ${relativeJarFilePath}
 }
 
