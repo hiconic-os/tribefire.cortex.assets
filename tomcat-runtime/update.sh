@@ -17,7 +17,7 @@ function repositoryRelativeJarFilePath() {
 	local relativeArtifactVersionFolder="${groupId//\./\/}/${artifactId}/${version}"
 	local jarFileName="${artifactId}-${version}.jar"
 	local relativeJarFilePath="${relativeArtifactVersionFolder}/${jarFileName}"
-	# return resulrt via echo
+	# return result via echo
 	echo ${relativeJarFilePath}
 }
 
@@ -232,7 +232,7 @@ if [ "$TOMCAT_VERSION" != "NOT_SET" ];then
 	TOMCAT_ARCHIVE_URL="https://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}"
 	TOMCAT_ARCHIVE_FILENAME="apache-tomcat-${TOMCAT_VERSION}-windows-x64.zip"
 	FULL_TOMCAT_ARCHIVE_URL="${TOMCAT_ARCHIVE_URL}/v${TOMCAT_VERSION}/bin/${TOMCAT_ARCHIVE_FILENAME}"
-	curl -s ${FULL_TOMCAT_ARCHIVE_URL} -o ${RUNTIME_UPDATE_DIR}/${TOMCAT_ARCHIVE_FILENAME}
+	curl -s -L ${FULL_TOMCAT_ARCHIVE_URL} -o ${RUNTIME_UPDATE_DIR}/${TOMCAT_ARCHIVE_FILENAME}
 
 	# extract Tomcat archive
 	unzip -q ${RUNTIME_UPDATE_DIR}/${TOMCAT_ARCHIVE_FILENAME} -d ${RUNTIME_UPDATE_DIR}
@@ -412,7 +412,7 @@ echo
 echo '************************************************************************************************************************'
 echo '* Download tomcat-juli replacement.'
 echo '************************************************************************************************************************'
-curl -s --user "${ARTIFACTORY_CREDENTIALS}" "${ARTIFACTORY_REPOSITORY_BASE_URL}/$(repositoryRelativeJarFilePath ${TOMCAT_JULI_ARTIFACT})" -o ${RUNTIME_UPDATE_DIR}/tomcat-juli.jar
+curl -s -L --user "${ARTIFACTORY_CREDENTIALS}" "${ARTIFACTORY_REPOSITORY_BASE_URL}/$(repositoryRelativeJarFilePath ${TOMCAT_JULI_ARTIFACT})" -o ${RUNTIME_UPDATE_DIR}/tomcat-juli.jar
 cp "${RUNTIME_UPDATE_DIR}/tomcat-juli.jar" "${RUNTIME_CUSTOM_AUTO_MAINTAINED_DIR}/host/bin/"
 echo 'Done.'
 
@@ -421,7 +421,7 @@ echo
 echo '************************************************************************************************************************'
 echo '* Download tomcat-extensions.'
 echo '************************************************************************************************************************'
-curl -s --user "${ARTIFACTORY_CREDENTIALS}" "${ARTIFACTORY_REPOSITORY_BASE_URL}/$(repositoryRelativeJarFilePath ${TOMCAT_EXTENSIONS_ARTIFACT})" -o ${RUNTIME_UPDATE_DIR}/tomcat-extensions.jar
+curl -s -L --user "${ARTIFACTORY_CREDENTIALS}" "${ARTIFACTORY_REPOSITORY_BASE_URL}/$(repositoryRelativeJarFilePath ${TOMCAT_EXTENSIONS_ARTIFACT})" -o ${RUNTIME_UPDATE_DIR}/tomcat-extensions.jar
 cp "${RUNTIME_UPDATE_DIR}/tomcat-extensions.jar" "${RUNTIME_CUSTOM_AUTO_MAINTAINED_DIR}/host/lib/"
 echo 'Done.'
 
@@ -430,7 +430,7 @@ echo
 echo '************************************************************************************************************************'
 echo '* Download dev-loader.'
 echo '************************************************************************************************************************'
-curl -s --user "${ARTIFACTORY_CREDENTIALS}" "${ARTIFACTORY_REPOSITORY_BASE_URL}/$(repositoryRelativeJarFilePath ${DEV_LOADER_ARTIFACT})" -o ${RUNTIME_UPDATE_DIR}/dev-loader.jar
+curl -s -L --user "${ARTIFACTORY_CREDENTIALS}" "${ARTIFACTORY_REPOSITORY_BASE_URL}/$(repositoryRelativeJarFilePath ${DEV_LOADER_ARTIFACT})" -o ${RUNTIME_UPDATE_DIR}/dev-loader.jar
 cp "${RUNTIME_UPDATE_DIR}/dev-loader.jar" "${RUNTIME_CUSTOM_AUTO_MAINTAINED_DIR}/host/lib/"
 echo 'Done.'
 
