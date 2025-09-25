@@ -41,11 +41,11 @@ There is an update script (`update.sh`) which semi-automates `tomcat-runtime` as
 
 ```
 sh update.sh \
-    --tomcatVersion 9.0.107 \
+    --tomcatVersion 9.0.109 \
     --stopIfReviewRequired false \
     --artifactoryRepositoryBaseUrl https://maven.pkg.github.com/hiconic-os/maven-repo-dev \
     --artifactory-credentials ignored:${GITHUB_READ_PACKAGES_TOKEN} \
-    --tomcatJuliArtifact 'com.braintribe.tomcat:logging-juli-extensions#2.0.80' \
+    --tomcatJuliArtifact 'com.braintribe.tomcat:logging-juli-extensions#2.0.81' \
     --tomcatExtensionsArtifact 'com.braintribe.tomcat:tomcat-extensions#2.0.10' \
     --devLoaderArtifact 'com.braintribe.devrock.eclipse.devloader:dev-loader#2.0.16'
 ```
