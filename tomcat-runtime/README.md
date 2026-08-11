@@ -41,7 +41,7 @@ There is an update script (`update.sh`) which semi-automates `tomcat-runtime` as
 
 ```
 sh update.sh \
-    --tomcatVersion 9.0.109 \
+    --tomcatVersion 9.0.120 \
     --stopIfReviewRequired false \
     --artifactoryRepositoryBaseUrl https://maven.pkg.github.com/hiconic-os/maven-repo-dev \
     --artifactory-credentials ignored:${GITHUB_READ_PACKAGES_TOKEN} \

@@ -43,7 +43,7 @@ the issues marked 'Beginner', link below. Please note that the Beginner keyword
 is pretty new to the project, so if there aren't any issues in the filter feel
 free to ask on the [dev list](https://tomcat.apache.org/lists.html#tomcat-dev).
 
-* [Beginner issues](https://bz.apache.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED&bug_status=NEEDINFO&keywords=Beginner&keywords_type=allwords&list_id=160824&product=Tomcat%207&product=Tomcat%208.5&product=Tomcat%209&query_format=advanced) -
+* [Beginner issues](https://bz.apache.org/bugzilla/buglist.cgi?bug_status=__open__&keywords=Beginner&keywords_type=allwords&product=Tomcat%209&product=Tomcat%2010&product=Tomcat%2011&query_format=advanced) -
 issues which should only require a few lines of code, and a test or two to
 resolve.
 
@@ -156,6 +156,67 @@ guidelines will be useful:
 source (.txt, .xml)
 * Java source: { at end of line, 4 space indents
 * XML source: 2 space indents
+
+## Changelog Entries
+
+Every code change that affects functionality, behavior, or user-visible features should have a corresponding entry in `webapps/docs/changelog.xml`.
+
+### When Changelog Entries Are Needed
+
+Add a changelog entry for:
+- New features or APIs
+- Bug fixes
+- Changes to defaults or existing behavior
+- Removals or deprecations
+- Significant refactoring that affects performance or behavior
+- Documentation updates to public APIs
+
+Skip changelog entries for:
+- Test-only changes (unless fixing a test infrastructure issue)
+- Build script maintenance
+- Internal code cleanup with no user impact
+
+### Entry Types
+
+Use the appropriate XML element based on the nature of your change:
+
+- `<add>` - New features, APIs, or capabilities. Start with "Add" or "Implement".
+  Example: `Add support for Jakarta EE 12 XML schemas.`
+
+- `<update>` - Changes to existing features, defaults, or removals. Start with "Change", "Remove", or "Update".
+  Example: `Change the default for encodedSolidusHandling from decode to reject.`
+
+- `<fix>` - Bug fixes. Start with "Fix". Include `<bug>NUMBER</bug>` if applicable.
+  Example: `<bug>70000</bug>: Fix duplication of special headers in the response after commit.`
+
+- `<scode>` - Internal refactoring or code structure changes. Explain the benefit, not just the change.
+  Example: `Refactor generation of the remote user element in the access log to remove unnecessary code.`
+
+- `<docs>` - Documentation-only updates (Javadoc, configuration docs).
+  Example: `Add Javadoc for the Common Annotations API implementation.`
+
+### Style and Formatting
+
+- Write in present tense, imperative mood ("Add support" not "Added support")
+- Keep entries concise (1-3 sentences)
+- Use `<code>` tags for class names, method names, and configuration attributes
+- Use `<bug>NUMBER</bug>` for Bugzilla references
+- For default changes, show before -> after: "from `false` to `true`"
+- End with attribution in parentheses: `(username)`
+- For community patches: "Patch submitted by Name. (committer)"
+
+### Subsection Placement
+
+Place entries in the appropriate subsection following this order:
+General, Catalina, Coyote, Jasper, Cluster, WebSocket, Web applications, Extras, Tribes, jdbc-pool, Other
+
+### Common Pitfalls to Avoid
+
+- Don't use past tense ("Fixed" -> use "Fix")
+- Don't omit `<code>` tags for technical terms
+- Don't forget attribution at the end
+- Don't be vague ("Fix bug" -> "Fix NPE when processing empty request headers")
+- Don't include implementation details unless relevant to users
 
 ## Did we miss something?
 

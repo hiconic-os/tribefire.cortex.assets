@@ -41,8 +41,7 @@
     <meta http-equiv="cache-control" content="no-cache,must-revalidate"/><!-- HTTP 1.1 -->
     <meta http-equiv="expires" content="0"/><!-- 0 is an invalid value and should be treated as 'now' -->
     <meta http-equiv="content-language" content="en"/>
-    <meta name="author" content="Cedrik LIME"/>
-    <meta name="copyright" content="copyright 2005-2025 the Apache Software Foundation"/>
+    <meta name="copyright" content="copyright 2005-2026 the Apache Software Foundation"/>
     <meta name="robots" content="noindex,nofollow,noarchive"/>
     <title>Sessions Administration for <%= JspHelper.escapeXml(cn.getDisplayName()) %></title>
     <link href="<%=request.getContextPath()%>/images/favicon.ico" rel="icon" type="image/x-icon" />
@@ -59,7 +58,7 @@
 <div class="error"><%= JspHelper.escapeXml(request.getAttribute("error")) %></div>
 <div class="message"><%= JspHelper.escapeXml(request.getAttribute("message")) %></div>
 
-<form action="<%= submitUrl %>" method="post" id="sessionsForm">
+<form action="<%= submitUrl %>" method="POST" id="sessionsForm">
     <fieldset><legend>Active HttpSessions information</legend>
         <input type="hidden" name="action" id="sessionsFormAction" value="injectSessions"/>
         <input type="hidden" name="sort" id="sessionsFormSort" value="<%= JspHelper.escapeXml(request.getAttribute("sort")) %>"/>
@@ -147,7 +146,7 @@
     </fieldset>
 </form>
 
-<form method="get" action="<%=request.getContextPath()%>/html">
+<form method="GET" action="<%=request.getContextPath()%>/html">
   <p style="text-align: center;">
     <input type="submit" value="Return to main page" />
   </p>

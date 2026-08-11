@@ -48,18 +48,16 @@ The most up-to-date documentation for each version can be found at:
 
 ### Installation
 
-Please see [RUNNING.txt](RUNNING.txt) for more info.
+Please see [RUNNING.txt](RUNNING.txt) for more information.
 
 ### Licensing
 
-Please see [LICENSE](LICENSE) for more info.
+Please see [LICENSE](LICENSE) for more information.
 
 ### Support and Mailing List Information
 
 * Free community support is available through the
-[tomcat-users](https://tomcat.apache.org/lists.html#tomcat-users) email list and
-a dedicated [IRC channel](https://tomcat.apache.org/irc.html) (#tomcat on
-Freenode).
+[tomcat-users](https://tomcat.apache.org/lists.html#tomcat-users) email list.
 
 * If you want freely available support for running Apache Tomcat, please see the
 resources page [here](https://tomcat.apache.org/findhelp.html).
@@ -76,4 +74,4 @@ instructions for reporting a bug
 
 ### Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for more info.
+Please see [CONTRIBUTING](CONTRIBUTING.md) for more information.
